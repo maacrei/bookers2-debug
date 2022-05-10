@@ -1,5 +1,5 @@
 <div class='container px-5 px-sm-0'>
-  
+
 <% if @book.errors.any? %>
   <%= @book.errors.count %> errors prohibited this book from being saved:
   <ul>
@@ -8,7 +8,7 @@
     <% end %>
   </ul>
 <% end %>
-  
+
   <div class='row'>
     <div class='col-md-3'>
 <h2>User info</h2>
@@ -19,6 +19,9 @@
     </div>
     <div class='col-md-8 offset-md-1'>
 <h2>Users</h2>
+<div class="mb-3">
+  <%= link_to "グループを作成する", new_group_path %> | <%= link_to "グループ一覧", groups_path %>
+</div>
 <%= render 'index',users: @users %>
     </div>
   </div>
