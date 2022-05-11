@@ -6,14 +6,14 @@
 
 <div class='container px-5 px-sm-0'>
 
-<% if @book.errors.any? %>
-  <%= @book.errors.count %> errors prohibited this book from being saved:
-  <ul>
-    <% @book.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
-<% end %>
+  <% if @book.errors.any? %>
+    <%= @book.errors.count %> errors prohibited this book from being saved:
+    <ul>
+      <% @book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
 
   <div class='row'>
     <div class='col-md-3'>
@@ -26,9 +26,15 @@
       <h2>Books</h2>
       <%= link_to "新しい順", books_path(sort: 'created_at DESC') %> | <%= link_to "古い順", books_path(sort: 'created_at ASC') %>
       | <%= link_to "評価の高い順", books_path(sort: 'star DESC') %>
-      
       <%= render 'favorites/favorites', books: @books %>
     </div>
   </div>
-
 </div>
+
+  <!--トップに戻るボタン-->
+  <span id="back", class="float-right mr-4">
+       <a href="#">
+        <%= image_tag "arrow.png", size:"40x40" %>
+       </a>
+  </span>
+  <script src="js/script.js"></script>

@@ -1,6 +1,6 @@
 class GroupsController < ApplicationController
   before_action :authenticate_user!
-  before_action :ensure_corrent_user, only: [:edit, :update]
+  before_action :ensure_current_user, only: [:edit, :update]
 
   def index
     @book = Book.new
