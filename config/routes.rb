@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  # get 'relationships/followings'
-  # get 'relationships/followers'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  
   devise_for :users
   root :to =>"homes#top"
   get "home/about"=>"homes#about"
@@ -27,6 +25,7 @@ Rails.application.routes.draw do
     get 'search' => 'users#search'
     # 上記追加
   end
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  
+  resources :groups, except: [:destroy]
 
 end
