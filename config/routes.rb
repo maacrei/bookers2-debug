@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
-  
+
   devise_for :users
   root :to =>"homes#top"
   get "home/about"=>"homes#about"
   get "search"=>"searches#search"
-  
+
   get "search_book" => "books#search_book"
   # get "search_book" => "searches#search_book"
-  
+
   # get 'chats/show'
   get 'chat/:id', to: 'chats#show', as: 'chat'
   resources :chats, only: [:create]
@@ -25,7 +25,9 @@ Rails.application.routes.draw do
     get 'search' => 'users#search'
     # 上記追加
   end
-  
-  resources :groups, except: [:destroy]
+
+  resources :groups, only: [:new, :index, :show, :create, :edit, :update] do
+    resource :group_users, only: [:create, :destroy]
+  end
 
 end
