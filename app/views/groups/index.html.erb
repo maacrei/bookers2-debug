@@ -20,11 +20,11 @@
       <table class="table table-hover table-inverse">
         <thead>
           <tr>
-            <th></th>
-            <th>グループ名</th>
-            <th>紹介文</th>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Introduction</th>
+            <th>Members</th>
             <th colspan="1"></th>
-            <th>メンバー数</th>
           </tr>
         </thead>
         <tbody>
@@ -33,12 +33,12 @@
             <td><%= image_tag group.get_image, size: '50x50' %></td>
             <td><%= link_to group.name, group_path(group) %></td>
             <td><%= group.introduction %></td>
+            <td><%= group.group_users.count %>名</td>
             <td>
               <% if group.owner_id == current_user.id %>
                 <%= link_to "Edit", edit_group_path(group), class: "btn btn-sm btn-success" %>
               <% end %>
             </td>
-            <td><%= group.users.count %>名</td>
           </tr>
           <% end %>
         </tbody>
