@@ -26,6 +26,8 @@ Rails.application.routes.draw do
     # 上記追加
   end
   
-  resources :groups, except: [:destroy]
+  resources :groups do
+    get "join" => "groups#join"
+  end
 
 end
